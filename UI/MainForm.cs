@@ -17,6 +17,8 @@ namespace UI
         private String automataConfig;
         private FiniteAutomata NFA;
         private FiniteAutomata DFA;
+        private bool dfaResult;
+        private bool nfaResult;
         
         public Form1()
         {
@@ -83,10 +85,11 @@ namespace UI
             }
 
             var (result, text) = automata.Run(inputString);
+            nfaResult = result;
             if (result == false)
             {
                 Console.WriteLine("Not Valid");
-                
+
             }
             automataOutputRichTextBox.Text = text;
             NFA = automata;
@@ -102,6 +105,7 @@ namespace UI
                 FiniteAutomata dfa = automataConverter.NFAToDFA(NFA);
 
                 var (result, text)= dfa.Run(inputString);
+                dfaResult = result;
                 if (result==false)
                 {
                     Console.WriteLine("Not Valid");
@@ -112,6 +116,7 @@ namespace UI
             else
             {
                 var (result, text)= DFA.Run(inputString);
+                dfaResult = result;
                 if (result==false)
                 {
                     Console.WriteLine("Not Valid");
@@ -129,6 +134,27 @@ namespace UI
             FiniteAutomata converterDFA = automataConverter.NFAToDFA(NFA);
             DFA = converterDFA;
             
+        }
+
+        private void areEqBtn_Click(object sender, EventArgs e)
+        {
+            if (DFA!=null && NFA!=null )
+            {
+                if (dfaResult && nfaResult)
+                {
+                    MessageBox.Show("They are equal", "Message", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("Not Equal", "Message", MessageBoxButtons.OK);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("DFA and NFA are not instantited", "Message", MessageBoxButtons.OK);
+
+            }
         }
     }
 }

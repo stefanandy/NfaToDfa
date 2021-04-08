@@ -38,6 +38,7 @@
             this.runNFAButton = new System.Windows.Forms.Button();
             this.convertButton = new System.Windows.Forms.Button();
             this.runDFAButton = new System.Windows.Forms.Button();
+            this.areEqBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             this.groupBox1.Controls.Add(this.automataOutputRichTextBox);
             this.groupBox1.Location = new System.Drawing.Point(576, 46);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(386, 413);
+            this.groupBox1.Size = new System.Drawing.Size(386, 430);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Automata Output";
@@ -88,13 +89,13 @@
             // 
             this.automataOutputRichTextBox.Location = new System.Drawing.Point(19, 25);
             this.automataOutputRichTextBox.Name = "automataOutputRichTextBox";
-            this.automataOutputRichTextBox.Size = new System.Drawing.Size(341, 354);
+            this.automataOutputRichTextBox.Size = new System.Drawing.Size(341, 372);
             this.automataOutputRichTextBox.TabIndex = 0;
             this.automataOutputRichTextBox.Text = "";
             // 
             // runNFAButton
             // 
-            this.runNFAButton.Location = new System.Drawing.Point(380, 185);
+            this.runNFAButton.Location = new System.Drawing.Point(379, 140);
             this.runNFAButton.Name = "runNFAButton";
             this.runNFAButton.Size = new System.Drawing.Size(147, 42);
             this.runNFAButton.TabIndex = 5;
@@ -104,7 +105,7 @@
             // 
             // convertButton
             // 
-            this.convertButton.Location = new System.Drawing.Point(401, 271);
+            this.convertButton.Location = new System.Drawing.Point(400, 226);
             this.convertButton.Name = "convertButton";
             this.convertButton.Size = new System.Drawing.Size(104, 40);
             this.convertButton.TabIndex = 6;
@@ -114,7 +115,7 @@
             // 
             // runDFAButton
             // 
-            this.runDFAButton.Location = new System.Drawing.Point(380, 349);
+            this.runDFAButton.Location = new System.Drawing.Point(379, 304);
             this.runDFAButton.Name = "runDFAButton";
             this.runDFAButton.Size = new System.Drawing.Size(147, 40);
             this.runDFAButton.TabIndex = 7;
@@ -122,11 +123,22 @@
             this.runDFAButton.UseVisualStyleBackColor = true;
             this.runDFAButton.Click += new System.EventHandler(this.runDFAButton_Click);
             // 
+            // areEqBtn
+            // 
+            this.areEqBtn.Location = new System.Drawing.Point(363, 382);
+            this.areEqBtn.Name = "areEqBtn";
+            this.areEqBtn.Size = new System.Drawing.Size(197, 49);
+            this.areEqBtn.TabIndex = 8;
+            this.areEqBtn.Text = "ARE EQUIVALENT?";
+            this.areEqBtn.UseVisualStyleBackColor = true;
+            this.areEqBtn.Click += new System.EventHandler(this.areEqBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 519);
+            this.Controls.Add(this.areEqBtn);
             this.Controls.Add(this.runDFAButton);
             this.Controls.Add(this.convertButton);
             this.Controls.Add(this.runNFAButton);
@@ -141,6 +153,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button areEqBtn;
 
         private System.Windows.Forms.Button runDFAButton;
 
