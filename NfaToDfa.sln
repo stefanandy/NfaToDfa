@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NfaToDfa", "NfaToDfa\NfaToDfa.csproj", "{C35B40CF-27CB-4E9C-B3C8-914FB3D3ACA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NfaToDfaTesting", "NfaToDfaTesting\NfaToDfaTesting.csproj", "{B2997D90-BA21-4743-910C-51554C7D7817}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C35B40CF-27CB-4E9C-B3C8-914FB3D3ACA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C35B40CF-27CB-4E9C-B3C8-914FB3D3ACA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C35B40CF-27CB-4E9C-B3C8-914FB3D3ACA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C35B40CF-27CB-4E9C-B3C8-914FB3D3ACA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2997D90-BA21-4743-910C-51554C7D7817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2997D90-BA21-4743-910C-51554C7D7817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2997D90-BA21-4743-910C-51554C7D7817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2997D90-BA21-4743-910C-51554C7D7817}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
