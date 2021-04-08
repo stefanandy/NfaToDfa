@@ -13,7 +13,7 @@ namespace NfaToDfaTesting
         }
 
         [Test]
-        public void Should_ReturnsDFAAutomata_When_ConvertNFAToDFA_WithValidNFA()
+        public void Test_Should_ReturnsDFAAutomata_When_ConvertNFAToDFA_WithValidNFA()
         {
             List<char> alphabet = new List<char> { '0', '1' };
             FiniteAutomata nfaTest = new FiniteAutomata(AutomataType.NFA, alphabet);
@@ -67,6 +67,54 @@ namespace NfaToDfaTesting
             }
 
             Assert.Fail();
+        }
+
+        [Test]
+        public void Test_NFA_RUN_Should_Return_False_Invalid_Input()
+        { 
+            var inputString = "10001";
+            List<char> alphabet = new List<char> { '0', '1' };
+            FiniteAutomata nfaTest = new FiniteAutomata(AutomataType.NFA, alphabet);
+
+            _ = nfaTest.AddState("A", isInitialState: true,false); //A
+            _ = nfaTest.AddState("B",false,false);         //B
+            _ = nfaTest.AddState("C", false, isFinalState: true);   //C
+
+            _ = nfaTest.AddTransition('0', "A", "A");     // TR: A '0' 
+            _ = nfaTest.AddTransition('1', "A", "B,C");   // TR: A '1' 
+
+            _ = nfaTest.AddTransition('0', "B", "A");     // TR: B '0' 
+            _ = nfaTest.AddTransition('1', "B", "A,C");   // TR: B '1'
+
+            _ = nfaTest.AddTransition('0', "C", "A,B");   // TR: C '0' 
+            _ = nfaTest.AddTransition('1', "C", "C");     // TR: C '1'
+
+            var result = nfaTest.Run(inputString);
+            Assert.AreEqual(false, result);
+        }
+        
+        [Test]
+        public void Test_NFA_RUN_Should_Return_True_Valid_Input()
+        { 
+            var inputString = "10001";
+            List<char> alphabet = new List<char> { '0', '1' };
+            FiniteAutomata nfaTest = new FiniteAutomata(AutomataType.NFA, alphabet);
+
+            _ = nfaTest.AddState("A", isInitialState: true,false); //A
+            _ = nfaTest.AddState("B",false,false);         //B
+            _ = nfaTest.AddState("C", false, isFinalState: true);   //C
+
+            _ = nfaTest.AddTransition('0', "A", "A");     // TR: A '0' 
+            _ = nfaTest.AddTransition('1', "A", "B,C");   // TR: A '1' 
+
+            _ = nfaTest.AddTransition('0', "B", "B");     // TR: B '0' 
+            _ = nfaTest.AddTransition('1', "B", "C");   // TR: B '1'
+
+            _ = nfaTest.AddTransition('0', "C", "A,B");   // TR: C '0' 
+            _ = nfaTest.AddTransition('1', "C", "C");     // TR: C '1'
+
+            var result = nfaTest.Run(inputString);
+            Assert.AreEqual(true, result);
         }
     }
 }

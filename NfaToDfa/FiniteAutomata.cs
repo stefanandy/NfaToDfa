@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NfaToDfa
@@ -189,7 +190,40 @@ namespace NfaToDfa
             transitions.Add(transition);
             return true;
         }
+        
+        public (bool,string) Run(string input)
+        {
+            if (isDFA()==false || isNFA()==false)
+            {
+                return (false,null);
+            }
 
+            string output = "";
+
+            State currentState = InitialState();
+            Transition currentTransition;
+            foreach (char letter in input)
+            {
+                string write = $"Transition {letter} - {currentState.StateName} >>> ";
+                Console.Write("Transition {0} - {1} >>> ", letter, currentState.StateName);
+                output += write;
+
+                currentTransition = this.transitions.FirstOrDefault(x => x.fromState.StateName == currentState.StateName && x.transitionSymbol == letter);
+                currentState = currentTransition.toState.RandomState();
+                Console.WriteLine(currentState.StateName);
+                output += currentState.StateName + '\n';
+            }
+
+            string secondWrite = $"Current State is {currentState.StateName}.(Final State: {(currentState.FinalState ? "Yes" : "No")})";
+            output += secondWrite+'\n';
+            Console.WriteLine("Current State is {0}.(Final State: {1})", currentState.StateName, currentState.FinalState ? "Yes" : "No");
+            
+            if (currentState.FinalState)
+            {
+                return (true, output);
+            }
+
+            return (false,null);
+        }
     }
-    
 }
